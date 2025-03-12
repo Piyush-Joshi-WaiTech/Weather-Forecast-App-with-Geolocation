@@ -64,17 +64,19 @@ input:checked + .slider:before {
 }
 
 .search-icon {
+  font: bold;
   position: absolute;
   top: 50%;
   left: 15px;
   transform: translateY(-50%);
-  width: 18px; /* Adjust icon size */
+  width: 18px;
   height: 18px;
 }
 
 .search-bar {
+  font: bold;
   width: 100%;
-  padding-left: 40px; /* Space for the search icon */
+  padding-left: 40px;
   border-radius: 20px;
 }
 
@@ -378,7 +380,7 @@ input:checked + .slider:before {
   box-shadow: 10px 10px 35px rgba(0, 0, 0, 0.5); /* Same shadow as 1st box */
   max-width: 400px; /* Same width */
   width: 90%; /* Responsive */
-  height: 320px; /* Same height */
+  height: 310px; /* Same height */
   position: absolute;
   top: 420px; /* Aligns exactly below the 1st box */
   left: 50px; /* Same left alignment */
@@ -413,86 +415,185 @@ input:checked + .slider:before {
   color: white;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .weather-container {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Last Box Design*/
 
-  .weather-forecast-box {
-    width: 100%;
-    max-width: 400px;
-  }
+/* Hourly Forecast Box - Align Right of 5-Day Forecast */
+.hourly-forecast-box {
+  background-color: #d9d9d9;
+  color: black;
+  text-align: center;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 10px 10px 35px rgba(0, 0, 0, 0.5);
+  max-width: 550px; /* Slightly wider */
+  width: 100%;
+  height: 307px; /* Same height */
+  position: absolute;
+  top: 420px; /* Aligns with 5-Day Forecast */
+  left: 680px; /* Positioned to the right */
+}
+
+/* Hourly Forecast Title */
+.hourly-forecast-box h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+/* Hourly Forecast Items */
+.hourly-forecast-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  height: 180px;
+}
+
+.hourly-item {
+  background: #444;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  width: 20%;
+}
+
+.hourly-item img {
+  width: 39px;
+  height: 39px;
+}
+
+/* Dark Mode Support */
+.dark-mode .hourly-forecast-box {
+  background-color: #444444;
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.7);
+  color: white;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+@media (max-width: 1200px) {
+  .weather-box,
+  .weather-details-box,
+  .weather-forecast-box,
+  .hourly-forecast-box {
+    width: 90%;
+    max-width: none;
+  }
+
   .weather-container {
     flex-direction: column;
     align-items: center;
-    top: auto;
-    left: auto;
-    position: static;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+}
+
+/* Medium screens (max-width: 992px) */
+@media (max-width: 992px) {
+  .weather-box {
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 0;
+    top: 0;
   }
 
-  .weather-box,
   .weather-details-box {
-    width: 90%;
+    width: 100%;
+    max-width: 500px;
     height: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .weather-forecast-box,
+  .hourly-forecast-box {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .weather-container {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+}
+
+/* Tablet screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .weather-box {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .weather-details-box {
+    max-width: 100%;
     padding: 20px;
   }
 
   .details-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-/* Responsive Design for Weather Box */
-@media (max-width: 768px) {
-  .weather-box {
-    max-width: 300px; /* Adjust width for smaller screens */
-    width: 90%;
-    height: 180px; /* Slightly reduced height */
-    padding: 20px;
-    position: static; /* Prevent absolute positioning issues */
-    margin: 30px auto; /* Center it again */
+  .weather-forecast-box,
+  .hourly-forecast-box {
+    max-width: 100%;
   }
 
-  .weather-box .time {
-    font-size: 40px;
+  .hourly-forecast-container {
+    flex-wrap: wrap;
+    justify-content: center;
   }
-}
 
-/* Responsive Design navbar */
-@media (max-width: 768px) {
+  .hourly-item {
+    width: 45%;
+    margin-bottom: 10px;
+  }
+
+  /* Navbar adjustments */
   .search-container {
-    width: 70%;
-    margin-top: -1% !important;
+    width: 80%;
   }
 
   .btn-location {
     font-size: 14px;
     padding: 5px 10px;
-    margin-top: 2% !important;
   }
 
-  .switch {
-    margin-top: -30% !important;
-  }
+  .switch,
   .name {
-    margin-top: -30% !important;
+    margin-top: 0 !important;
   }
 }
-/* Responsive Design */
-@media (max-width: 768px) {
-  .weather-container {
-    flex-direction: column;
-    align-items: center;
+
+/* Mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .weather-box,
+  .weather-details-box,
+  .weather-forecast-box,
+  .hourly-forecast-box {
+    width: 95%;
+    max-width: 100%;
+    height: auto;
+    padding: 15px;
   }
 
-  .weather-forecast-box {
+  .details-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .hourly-item {
     width: 100%;
-    max-width: 400px;
   }
 }
