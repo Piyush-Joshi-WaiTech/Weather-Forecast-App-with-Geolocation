@@ -4,6 +4,96 @@ document
     document.body.classList.toggle("dark-mode");
   });
 
+// Select the Current Location button
+const locationButton = document.getElementById("currentLocationBtn");
+
+// Function to fetch weather using geolocation
+function fetchWeatherByLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        await fetchWeatherByCoords(latitude, longitude);
+      },
+      (error) => {
+        alert(
+          "Unable to retrieve your location. Please check your location settings."
+        );
+        console.error("Geolocation error:", error);
+      }
+    );
+  } else {
+    alert("Geolocation is not supported by your browser.");
+  }
+}
+
+// Function to fetch weather by latitude and longitude
+async function fetchWeatherByCoords(lat, lon) {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+    );
+    const data = await response.json();
+
+    if (data.cod !== 200) {
+      alert("Weather data not found for your location!");
+      return;
+    }
+
+    // Update UI with location data
+    cityNameEl.textContent = data.name;
+
+    // Set timezone offset
+    timezoneOffset = data.timezone;
+
+    // Update time and start clock
+    updateTime();
+    clearInterval(timeInterval);
+    timeInterval = setInterval(updateTime, 1000);
+
+    // ** Update Weather Details Box **
+    document.querySelector(".temp h1").textContent = `${Math.round(
+      data.main.temp
+    )}°C`;
+    document.querySelector(
+      ".feels-like"
+    ).textContent = `Feels like: ${Math.round(data.main.feels_like)}°C`;
+
+    // Convert sunrise and sunset to local time
+    document.querySelector(
+      ".sun-timing .detail:nth-child(1) .sun-text span:nth-child(2)"
+    ).textContent = formatTime(data.sys.sunrise, timezoneOffset);
+    document.querySelector(
+      ".sun-timing .detail:nth-child(2) .sun-text span:nth-child(2)"
+    ).textContent = formatTime(data.sys.sunset, timezoneOffset);
+
+    // Update Weather Icon & Condition
+    const weatherCondition = data.weather[0].main;
+    document.querySelector(".weather-condition").textContent = weatherCondition;
+    document.querySelector(".large-weather-icon").src =
+      getWeatherIcon(weatherCondition);
+
+    // Update weather details
+    document.querySelector(
+      ".details-grid .detail:nth-child(1) span:last-child"
+    ).textContent = `${data.main.humidity}%`;
+    document.querySelector(
+      ".details-grid .detail:nth-child(2) span:last-child"
+    ).textContent = `${data.main.pressure} hPa`;
+    document.querySelector(
+      ".details-grid .detail:nth-child(3) span:last-child"
+    ).textContent = `${data.wind.speed} km/h`;
+
+    // Fetch and update 5-day and hourly forecasts
+    fetchForecast(data.name);
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+  }
+}
+
+// Add event listener to the Current Location button
+locationButton.addEventListener("click", fetchWeatherByLocation);
+
 // 1st Box functionality:
 const apiKey = "ac6277f2fdac4f62b9c4724ab3a54c40";
 const searchInput = document.querySelector(".search-bar");
