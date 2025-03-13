@@ -382,6 +382,8 @@ function updateHourlyForecast(hourlyData) {
   });
 }
 
+/* Hourly Data */
+
 // Event Listener for Search
 searchInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {

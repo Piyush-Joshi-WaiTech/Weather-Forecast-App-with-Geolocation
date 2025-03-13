@@ -21,6 +21,24 @@ body {
   gap: 10px;
 }
 
+.toggle-temp-btn {
+  background-color: #ff9800; /* Orange */
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  position: absolute;
+  right: -50px; /* Move button slightly to the right */
+  top: 10px;
+}
+
+.toggle-temp-btn:hover {
+  background-color: #e68900; /* Darker Orange */
+}
+
 /* Fix the toggle switch position */
 .switch {
   position: relative;
@@ -351,6 +369,10 @@ input:checked + .slider:before {
 .weather-details-box .temp h1 {
   font-size: 60px;
   font-weight: bold;
+  background: linear-gradient(to right, #292929, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 5px;
   margin-top: 0px;
   margin-left: -50px;
@@ -358,6 +380,14 @@ input:checked + .slider:before {
 .weather-details-box .feels-like {
   margin-left: -55px;
   font-size: 20px;
+  color: #292929;
+  font-weight: 500;
+}
+
+/* Dark Mode Styling */
+.dark-mode .feels-like,
+.dark-mode .sunrise-sunset {
+  color: #ffffff !important; /* White text in dark mode */
 }
 
 /* Center Weather Icon */
