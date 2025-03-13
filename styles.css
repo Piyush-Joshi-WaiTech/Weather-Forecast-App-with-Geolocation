@@ -12,11 +12,10 @@ body {
 }
 
 /* Custom Dark Mode Toggle Switch */
-/* Align the toggle to the left */
 .dark-mode-toggle {
   position: absolute;
-  top: 58px; /* Adjust based on your first box position */
-  left: -145px; /* Adjust to align perfectly */
+  top: 58px;
+  left: -145px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -26,8 +25,9 @@ body {
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 25px;
+  width: 60px;
+  height: 30px;
+  margin-left: 30px !important;
 }
 
 .switch input {
@@ -40,19 +40,19 @@ body {
   position: absolute;
   cursor: pointer;
   top: 0;
-  left: 0; /* Remove the -157px offset */
+  left: 0;
   right: 0;
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 25px;
+  border-radius: 30px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
+  height: 24px;
+  width: 24px;
   left: 4px;
   bottom: 3px;
   background-color: black;
@@ -65,16 +65,16 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(24px);
+  transform: translateX(30px);
 }
 
 /* Search Bar with Image */
 .search-container {
-  position: relative; /* Absolute positioning for precise control */
-  top: 15px; /* Move search bar up */
-  left: 80px; /* Move to the left */
-  width: 65%; /* Increase width */
-  max-width: 900px; /* Prevent it from becoming too wide */
+  position: relative;
+  top: 15px;
+  left: 80px;
+  width: 65%;
+  max-width: 900px;
   display: flex;
   align-items: center;
   margin: auto;
@@ -86,18 +86,18 @@ input:checked + .slider:before {
   top: 50%;
   left: 15px;
   transform: translateY(-50%);
-  width: 20px; /* Slightly increase icon size */
+  width: 20px;
   height: 20px;
 }
 
 /* Input Field */
 .search-bar {
   width: 1000px;
-  padding: 10px 15px 10px 40px; /* Ensure proper padding for icon */
-  border-radius: 25px; /* Make it look smoother */
-  font-size: 16px; /* Increase font size for better visibility */
+  padding: 10px 15px 10px 40px;
+  border-radius: 25px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Current Location Button with Image */
@@ -112,12 +112,12 @@ input:checked + .slider:before {
   align-items: center;
   gap: 8px;
   font-size: 16px;
-  height: 45px; /* Match search bar height */
+  height: 45px;
   margin-right: -58px;
   white-space: nowrap;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
-  top: -11px; /* Move button slightly up */
+  top: -11px;
 }
 
 .btn-location:hover {
@@ -136,7 +136,7 @@ input:checked + .slider:before {
 }
 
 .dark-mode .navbar {
-  background-color: #333;
+  background-color: #333 !important;
 }
 
 .dark-mode .search-bar {
@@ -160,9 +160,9 @@ input:checked + .slider:before {
   max-width: 530px !important;
   width: 95% !important;
   height: 300px !important;
-  margin: 30px 0 0 20px !important; /* Move down slightly */
+  margin: 30px 0 0 20px !important;
   position: absolute;
-  top: 140px; /* Move down */
+  top: 140px;
   left: 50px;
 }
 
@@ -196,19 +196,19 @@ input:checked + .slider:before {
 /* Weather Container */
 .weather-container {
   display: flex;
-  align-items: stretch; /* Ensures both boxes have equal height */
+  align-items: stretch;
   gap: 20px;
   margin-top: 20px;
 }
 
 .weather-box,
 .weather-details-box {
-  flex: 1; /* Makes both divs take equal height */
-  height: 250px; /* Set the same height for both */
+  flex: 1;
+  height: 250px;
   padding: 30px;
   border-radius: 25px;
-  box-shadow: 10px 10px 35px rgba(0, 0, 0, 0.5);
-  background: #e0e0e0;
+  box-shadow: 10px 10px 35px rgba(0, 0, 0, 1);
+  background: #d9d9d9;
 }
 
 /* Start Weather Box Styling */
@@ -219,7 +219,7 @@ input:checked + .slider:before {
   text-align: center;
   padding: 30px;
   border-radius: 25px;
-  box-shadow: 10px 10px 35px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 35px rgba(0, 0, 0, 1);
   max-width: 400px;
   width: 90%;
   height: 220px;
@@ -293,12 +293,12 @@ input:checked + .slider:before {
   padding: 30px;
   border-radius: 25px;
   box-shadow: 10px 10px 35px rgba(0, 0, 0, 0.5);
-  width: 868px !important; /* Updated */
-  height: 300px; /* Updated */
+  width: 868px !important;
+  height: 300px;
   padding: 35px;
   position: absolute;
   top: 132px !important;
-  margin-left: 30px !important; /* Updated */
+  margin-left: 30px !important;
   flex-direction: column;
 }
 
@@ -320,14 +320,27 @@ input:checked + .slider:before {
 .sun-timing {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  margin-top: 10px;
+  align-items: flex-start; /* Align items to the left */
+  justify-content: flex-start;
+  margin-top: 30px;
+  gap: 15px;
+  margin-left: -40px !important; /* Adjust for left shifting */
 }
 
+.sun-timing .detail img {
+  width: 45px; /* Adjust as needed */
+  height: 45px;
+}
+
+.sun-timing .sun-text span {
+  font-size: 18px; /* Adjust for better readability */
+  font-weight: bold;
+}
 .large-weather-icon {
-  width: 150px !important;
-  height: 150px !important;
+  width: 220px !important;
+  height: 220px !important;
   margin-left: 30px;
+  margin-top: -30px;
 }
 
 /* Temperature Section */
@@ -336,12 +349,15 @@ input:checked + .slider:before {
 }
 
 .weather-details-box .temp h1 {
-  font-size: 38px;
+  font-size: 60px;
   font-weight: bold;
   margin-bottom: 5px;
+  margin-top: 0px;
+  margin-left: -50px;
 }
 .weather-details-box .feels-like {
-  font-size: 18px;
+  margin-left: -55px;
+  font-size: 20px;
 }
 
 /* Center Weather Icon */
@@ -367,16 +383,18 @@ input:checked + .slider:before {
 
 /* Grid Layout for Details */
 .details-grid {
+  font-weight: bold;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 15px;
+  gap: 30px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 253x !important;
 }
 
 .detail {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .detail img {
@@ -435,8 +453,8 @@ input:checked + .slider:before {
 
 /* Ensure consistent column width for temperature */
 .forecast-item .temp {
-  min-width: 50px; /* Adjust width for alignment */
-  text-align: center; /* Center-align text */
+  min-width: 50px;
+  text-align: center;
   display: flex;
   justify-content: center;
 }
@@ -482,21 +500,21 @@ input:checked + .slider:before {
 /* Hourly Forecast Items */
 .hourly-forecast-container {
   display: flex;
-  justify-content: space-between; /* Even distribution */
+  justify-content: space-between;
   align-items: center;
-  gap: 5px; /* Slightly reduce gap for balance */
-  height: 220px; /* Increased height */
-  padding: 0 45px; /* More space on left & right */
+  gap: 5px;
+  height: 220px;
+  padding: 0 45px;
 }
 
 .hourly-item {
   background: #444;
   color: white;
-  padding: 12px 6px; /* Adjust padding */
+  padding: 12px 6px;
   border-radius: 15px;
   text-align: center;
-  width: 12%; /* Reduce width */
-  height: 95%; /* Increase height slightly */
+  width: 12%;
+  height: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -509,12 +527,12 @@ input:checked + .slider:before {
 /* Time, Temperature, and Wind Speed Styling */
 .hourly-item span {
   display: block;
-  font-size: 17px; /* Slightly larger text */
+  font-size: 17px;
   font-weight: bold;
 }
 /* Wind Direction Icon */
 .hourly-item img:nth-of-type(2) {
-  margin: 5px 0; /* Adjust margin for proper spacing */
+  margin: 5px 0;
 }
 
 /* Dark Mode Support */
@@ -558,132 +576,4 @@ input:checked + .slider:before {
 /* Set time, temperature, and 3km/h font color in Dark Mode */
 .dark-mode .hourly-item span {
   color: #ffffff !important;
-}
-
-/* Responsive Design */
-
-@media (max-width: 1200px) {
-  .weather-box,
-  .weather-details-box,
-  .weather-forecast-box,
-  .hourly-forecast-box {
-    width: 90%;
-    max-width: none;
-  }
-
-  .weather-container {
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    left: 0;
-    top: 0;
-  }
-}
-
-/* Medium screens (max-width: 992px) */
-@media (max-width: 992px) {
-  .weather-box {
-    width: 100%;
-    max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    left: 0;
-    top: 0;
-  }
-
-  .weather-details-box {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    position: relative;
-    left: 0;
-    top: 0;
-  }
-
-  .weather-forecast-box,
-  .hourly-forecast-box {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    position: relative;
-    left: 0;
-    top: 0;
-  }
-
-  .weather-container {
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    left: 0;
-    top: 0;
-  }
-}
-
-/* Tablet screens (max-width: 768px) */
-@media (max-width: 768px) {
-  .weather-box {
-    max-width: 300px;
-    height: auto;
-  }
-
-  .weather-details-box {
-    max-width: 100%;
-    padding: 20px;
-  }
-
-  .details-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .weather-forecast-box,
-  .hourly-forecast-box {
-    max-width: 100%;
-  }
-
-  .hourly-forecast-container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hourly-item {
-    width: 45%;
-    margin-bottom: 10px;
-  }
-
-  /* Navbar adjustments */
-  .search-container {
-    width: 80%;
-  }
-
-  .btn-location {
-    font-size: 14px;
-    padding: 5px 10px;
-  }
-
-  .switch,
-  .name {
-    margin-top: 0 !important;
-  }
-}
-
-/* Mobile screens (max-width: 480px) */
-@media (max-width: 480px) {
-  .weather-box,
-  .weather-details-box,
-  .weather-forecast-box,
-  .hourly-forecast-box {
-    width: 95%;
-    max-width: 100%;
-    height: auto;
-    padding: 15px;
-  }
-
-  .details-grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .hourly-item {
-    width: 100%;
-  }
 }

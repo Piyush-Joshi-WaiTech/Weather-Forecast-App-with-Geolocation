@@ -215,7 +215,6 @@ function updateTime() {
   dateEl.textContent = localTime.toDateString();
 }
 
-// Event Listener for Search
 // Function to fetch weather data
 async function fetchWeather(city) {
   try {
