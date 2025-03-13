@@ -607,3 +607,5 @@ input:checked + .slider:before {
 .dark-mode .hourly-item span {
   color: #ffffff !important;
 }
+
+/*Responsive*/
